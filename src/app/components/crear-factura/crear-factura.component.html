@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Factura</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Cliente</ion-label>
+    <ion-input [(ngModel)]="factura.cliente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="detalle.descripcion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad</ion-label>
+    <ion-input [(ngModel)]="detalle.cantidad"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio Unitario</ion-label>
+    <ion-input [(ngModel)]="detalle.precioUnitario"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="agregarDetalle()"
+    >Agregar Detalle</ion-button
+  >
+
+  <ion-list>
+    <ion-item *ngFor="let det of factura.detalles; let i = index">
+      <ion-label>
+        {{ det.descripcion }} - {{ det.cantidad }} X
+        {{ det.precioUnitario | currency }}
+      </ion-label>
+      <ion-button color="danger" (click)="eliminarDetalle(i)"
+        >Eliminar</ion-button
+      >
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="crearFactura()">Crear Factura</ion-button>
+</ion-content>

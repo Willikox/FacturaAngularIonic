@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Facturas</ion-title>
+    <ion-button slot="end">
+      <ion-button routerLink="/crear-factura">Crear Factura</ion-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let factura of facturas">
+      <ion-label>
+        <h2>{{ factura.cliente }}</h2>
+        <p>Fecha: {{ factura.fecha }}</p>
+        <p>Total: ${{ factura.total }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
